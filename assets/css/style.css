@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #121416;
+    --tertiary-color: #9CC973DB;
+}
+
+.light-mode {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --tertiary-color: #d9ecc6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.container {
+    margin: 0 6.4rem;
+    padding: 3.2vh 3.2vw;
+    max-width: 3840px;
+}
+
+#hero, .footer-text {
+    display: flex;
+}
+
+#hero {
+    align-items: center;
+    height: 100vh;
+    justify-content: left;
+    width: 100vw;
+}
+
+.icon, #arrow {
+    cursor: pointer;
+    height: 4.8rem;
+    width: 4.8rem;
+}
+
+#home-icon {
+    left: 4.8rem;
+    position: absolute;
+    top: 4.8rem;
+}
+
+#menu-icon, #theme-icon {
+    position: absolute;
+    right: 4.8rem;
+    top: 4.8rem;
+}
+
+#menu-icon {
+    display: none;
+}
+
+h1 {
+    font-size: 8.6rem;
+}
+
+h1 span {
+    color: #669933;
+}
+
+#arrow {
+    animation: bounce 2s infinite;
+    border: 0.32rem solid var(--primary-color);
+    border-bottom-width: 0;
+    border-left-width: 0;
+    bottom: 4.8rem;
+    position: fixed;
+    right: 50%;
+    transform: rotate(135deg);
+    z-index: -1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(135deg);
+    }
+    40% {
+        transform: translateY(-3.2vh) rotate(135deg);
+    }
+    60% {
+        transform: translateY(-1.6vh) rotate(135deg);
+    }
+}
+
+#arrow.arrow-down {
+    animation: moveDown 0.48s forwards;
+}
+
+@keyframes moveDown {
+    0% {
+        bottom: 4.8rem;
+    }
+    100% {
+        bottom: calc((4.8rem) - 8.6rem);
+    }
+}
+
+#arrow.arrow-up {
+    animation: moveUp 0.48s forwards;
+}
+
+@keyframes moveUp {
+    0% {
+        bottom: calc((4.8rem) - 8.6rem);
+    }
+    100% {
+        bottom: 4.8rem;
+    }
+}
+
+#footer {
+    background: #000000;
+    color: #ffffff;
+    margin-top: 16rem;
+    text-align: center;
+}
+
+.footer-text {
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-text p {
+    font-size: 3.2rem;
+    margin: 3.2rem;
+}
