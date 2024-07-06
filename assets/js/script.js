@@ -38,8 +38,8 @@ elements.githubIcon.addEventListener('click', (event) => {
 });
 
 window.addEventListener('scroll', function () {
-    var arrow = document.getElementById('arrow');
-    var scrollThreshold = window.innerHeight / 16;
+    const arrow = document.getElementById('arrow');
+    const scrollThreshold = window.innerHeight / 16;
 
     if (window.scrollY > scrollThreshold) {
         arrow.style.opacity = '0';
