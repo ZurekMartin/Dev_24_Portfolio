@@ -11,9 +11,9 @@ function getThemeToSet() {
 }
 
 function setTheme(theme, elements) {
-    const mode = `${theme}-mode`;
+    const mode = `${theme}_mode`;
     document.body.className = mode;
-    elements.homeIcon.src = `assets/img/home-${mode}.png`;
+    elements.homeIcon.src = `assets/img/home_${mode}.png`;
     elements.themeIcon.src = `assets/img/${theme === 'dark' ? 'sun' : 'moon'}.png`;
     localStorage.setItem('theme', theme);
 }
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(getThemeToSet(), elements);
 
     elements.themeIcon.addEventListener('click', () => {
-        const newTheme = document.body.className === 'dark-mode' ? 'light' : 'dark';
+        const newTheme = document.body.className === 'dark_mode' ? 'light' : 'dark';
         setTheme(newTheme, elements);
     });
 });
@@ -46,4 +46,14 @@ window.addEventListener('scroll', function () {
     } else {
         arrow.style.opacity = '1';
     }
+});
+
+document.querySelectorAll('.project-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        if (e.target.tagName.toLowerCase() === 'a' && e.target.href.includes('github.com')) {
+            return;
+        }
+        const description = this.querySelector('.project-description');
+        description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    });
 });
