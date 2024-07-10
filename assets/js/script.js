@@ -42,9 +42,11 @@ window.addEventListener('scroll', function () {
     const scrollThreshold = window.innerHeight / 16;
 
     if (window.scrollY > scrollThreshold) {
-        arrow.style.opacity = '0';
+        arrow.classList.remove('opacity-down');
+        arrow.classList.add('opacity-up');
     } else {
-        arrow.style.opacity = '1';
+        arrow.classList.remove('opacity-up');
+        arrow.classList.add('opacity-down');
     }
 });
 
@@ -54,6 +56,11 @@ document.querySelectorAll('.project-item').forEach(item => {
             return;
         }
         const description = this.querySelector('.project-description');
-        description.style.display = description.style.display === 'none' ? 'block' : 'none';
+        if (description.classList.contains('hidden')) {
+            description.classList.remove('hidden');
+        }
+        else {
+            description.classList.add('hidden');
+        }
     });
 });
