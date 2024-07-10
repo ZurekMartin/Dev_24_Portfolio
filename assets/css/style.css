@@ -134,6 +134,11 @@ h1 span {
     }
 }
 
+#bio {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    background-color: var(--tertiary-color);
+}
+
 #bio.container {
     margin: 2rem auto;
     text-align: center;
@@ -232,6 +237,12 @@ h1 span {
 .project-item:hover img {
     transform: scale(1.05);
 }
+
+#contact {
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    background-color: var(--tertiary-color);
+}
+
 
 #contact.container {
     margin: 4rem auto;
