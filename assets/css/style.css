@@ -24,7 +24,6 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    box-sizing: border-box;
     font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -54,15 +53,15 @@ body {
     width: 100vw;
 }
 
-.icon, #arrow {
+.icon {
     cursor: pointer;
     height: 4.8rem;
     width: 4.8rem;
 }
 
 #home-icon {
-    left: 4.8rem;
     position: absolute;
+    left: 4.8rem;
     top: 4.8rem;
 }
 
@@ -72,16 +71,21 @@ body {
     top: 4.8rem;
 }
 
-#menu-icon {
-    display: none;
-}
-
 h1 {
     font-size: 8.6rem;
 }
 
 h1 span {
     color: #669933;
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: var(--text-color);
+}
+
+h3 {
+    font-size: 1.6rem;
 }
 
 
@@ -95,6 +99,9 @@ h1 span {
     right: 50%;
     transform: rotate(135deg);
     z-index: -1;
+    cursor: pointer;
+    height: 4.8rem;
+    width: 4.8rem;
 }
 
 @keyframes bounce {
@@ -142,7 +149,7 @@ h1 span {
 }
 
 #bio.container {
-    margin: 2rem auto;
+    margin: 0 auto;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
@@ -151,15 +158,8 @@ h1 span {
 #bio img {
     width: 100%;
     max-width: 480px;
-    height: auto;
     border-radius: 50%;
     margin: 2rem 1rem;
-}
-
-#bio h2 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
 }
 
 #bio p {
@@ -171,8 +171,8 @@ h1 span {
 }
 
 
-#latest-projects.container, #projects-gallery.container {
-    margin: 4rem auto;
+#latest-projects.container, #projects-gallery.container, #contact.container {
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -195,29 +195,17 @@ h1 span {
 .project a, .project-item a {
     cursor: pointer;
     color: var(--button-background-color);
-    text-decoration: none;
-    margin: 1rem;
 }
 
 .project a:hover, .project-item a:hover {
     color: var(--button-hover-background-color);
 }
 
-.project img {
+.project img, .project-item img{
     width: 480px;
     height: auto;
-    border-radius: 8px;
     margin: 2rem 1rem;
-}
-
-.project h3, .project-item h3 {
-    margin-top: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.project p {
-    font-size: 1rem;
-    color: var(--text-color);
+    transition: transform 0.3s ease;
 }
 
 .project:hover, .project-item:hover {
@@ -229,39 +217,32 @@ h1 span {
 }
 
 
-.filter-button {
+.filter-button, #contact-form button{
     padding: 10px 20px;
+    font-size: 1rem;
     border: none;
     background-color: var(--button-background-color);
     color: white;
     cursor: pointer;
-    margin: 5px;
-    border-radius: 5px;
+    border-radius: 16px;
     transition: background-color 0.3s ease;
 }
 
-.filter-button:hover {
+.filter-button:hover, #contact-form button:hover {
     background-color: var(--button-hover-background-color);
-}
-
-.project-item img {
-    width: 480px;
-    height: auto;
-    margin: 2rem 1rem;
-    transition: transform 0.3s ease;
 }
 
 .project-description {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
 }
 
 .project-item:hover .project-description {
     max-height: 860px;
 }
 
-.project-description img{
+.project-description img {
     width: 240px;
     height: auto;
     margin: 2rem 1rem;
@@ -273,26 +254,15 @@ h1 span {
     background-color: var(--tertiary-color);
 }
 
-
-#contact.container {
-    margin: 4rem auto;
-    text-align: center;
-}
-
 #contact-form {
     max-width: 500px;
     margin: 2rem auto;
     padding: 2rem;
     color: var(--text-color);
     background: var(--background-color);
-    border-radius: 10px;
+    border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
-}
-
-#contact-form h2 {
-    margin-bottom: 1rem;
-    color: var(--text-color);
 }
 
 #contact-form label {
@@ -306,34 +276,20 @@ h1 span {
 #contact-form textarea {
     width: 100%;
     padding: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 1rem;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: var(--contact-input-background-color);
 }
 
-#contact-form button {
-    background-color: var(--button-background-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+#contact.container {
+    padding-top: 24rem;
 }
-
-#contact-form button:hover {
-    background-color: var(--button-hover-background-color);
-    transform: translateY(-2px);
-}
-
 
 #footer {
     background: black;
     color: white;
-    margin-top: 16rem;
     text-align: center;
 }
 
@@ -349,12 +305,12 @@ h1 span {
 
 .opacity-up {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .opacity-down {
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .hidden {
