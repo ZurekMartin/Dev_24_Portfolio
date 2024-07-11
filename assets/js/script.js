@@ -29,13 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
 elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
-
-elements.githubIcon.addEventListener('click', (event) => {
-    event.preventDefault();
-    const win = window.open('https://github.com/ZurekMartin', '_blank');
-    win.focus();
-    win.opener = null;
-});
+elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
 window.addEventListener('scroll', function () {
     const arrow = document.getElementById('arrow');
