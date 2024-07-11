@@ -3,7 +3,7 @@
     --secondary-color: #121416;
     --tertiary-color: #9CC973DB;
     --contact-background-color: #333;
-    --contact-text-color: #f9f9f9;
+    --text-color: #f9f9f9;
     --contact-border-color: #555;
     --contact-input-background-color: #444;
     --button-background-color: #0056b3;
@@ -14,8 +14,8 @@
     --primary-color: #000000;
     --secondary-color: #ffffff;
     --tertiary-color: #d9ecc6;
+    --text-color: #333;
     --contact-background-color: #fff;
-    --contact-text-color: #333;
     --contact-border-color: #ccc;
     --contact-input-background-color: #f9f9f9;
 }
@@ -84,6 +84,7 @@ h1 span {
     color: #669933;
 }
 
+
 #arrow {
     animation: bounce 2s infinite;
     border: 0.32rem solid var(--primary-color);
@@ -134,6 +135,7 @@ h1 span {
     }
 }
 
+
 #bio {
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
     background-color: var(--tertiary-color);
@@ -157,14 +159,17 @@ h1 span {
 #bio h2 {
     font-size: 2.5rem;
     color: #333;
+    margin-bottom: 1rem;
 }
 
 #bio p {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--text-color);
+    text-align: justify;
     max-width: 600px;
-    margin: auto;
+    margin-bottom: 1rem;
 }
+
 
 #latest-projects.container {
     margin: 4rem auto;
@@ -193,6 +198,7 @@ h1 span {
     font-size: 1rem;
     color: #666;
 }
+
 
 #projects-gallery {
     margin: 4rem auto;
@@ -229,8 +235,9 @@ h1 span {
 }
 
 .project-item img {
-    width: 100%;
+    width: 480px;
     height: auto;
+    margin: 2rem 1rem;
     transition: transform 0.3s ease;
 }
 
@@ -253,6 +260,23 @@ h1 span {
     transform: scale(1.05);
 }
 
+.project-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.project-item:hover .project-description {
+    max-height: 860px;
+}
+
+.project-description img{
+    width: 240px;
+    height: auto;
+    margin: 2rem 1rem;
+}
+
+
 #contact {
     clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
     background-color: var(--tertiary-color);
@@ -268,7 +292,7 @@ h1 span {
     max-width: 500px;
     margin: 2rem auto;
     padding: 2rem;
-    color: var(--contact-text-color);
+    color: var(--text-color);
     background: var(--contact-background-color);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -277,13 +301,13 @@ h1 span {
 
 #contact-form h2 {
     margin-bottom: 1rem;
-    color: var(--contact-text-color);
+    color: var(--text-color);
 }
 
 #contact-form label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--contact-text-color);
+    color: var(--text-color);
     font-weight: 600;
 }
 
@@ -313,6 +337,7 @@ h1 span {
     background-color: var(--button-hover-background-color);
     transform: translateY(-2px);
 }
+
 
 #footer {
     background: #000000;
