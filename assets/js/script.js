@@ -50,23 +50,8 @@ window.addEventListener('scroll', function () {
     }
 });
 
-document.querySelectorAll('.project-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-        if (e.target.tagName.toLowerCase() === 'a' && e.target.href.includes('github.com')) {
-            return;
-        }
-        const description = this.querySelector('.project-description');
-        if (description.classList.contains('hidden')) {
-            description.classList.remove('hidden');
-        }
-        else {
-            description.classList.add('hidden');
-        }
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('.filter-button');
     const projects = document.querySelectorAll('.project-item');
 
     filterButtons.forEach(button => {
