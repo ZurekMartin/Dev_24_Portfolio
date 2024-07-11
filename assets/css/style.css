@@ -145,8 +145,7 @@ h1 span {
     margin: 2rem auto;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
 }
 
 #bio img {
@@ -154,6 +153,7 @@ h1 span {
     max-width: 480px;
     height: auto;
     border-radius: 50%;
+    margin: 2rem 1rem;
 }
 
 #bio h2 {
@@ -171,36 +171,46 @@ h1 span {
 }
 
 
-#latest-projects.container {
+#latest-projects.container, #projects-gallery.container {
     margin: 4rem auto;
     text-align: center;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
     gap: 20px;
     margin-top: 2rem;
 }
 
-.project a {
+.project, .project-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--background-color);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project a, .project-item a {
     cursor: pointer;
     color: var(--button-background-color);
     text-decoration: none;
     margin: 1rem;
 }
 
-.project a:hover {
+.project a:hover, .project-item a:hover {
     color: var(--button-hover-background-color);
 }
 
 .project img {
-    width: 100%;
+    width: 480px;
     height: auto;
     border-radius: 8px;
+    margin: 2rem 1rem;
 }
 
-.project h3 {
+.project h3, .project-item h3 {
     margin-top: 0.5rem;
     font-size: 1.5rem;
 }
@@ -210,11 +220,14 @@ h1 span {
     color: var(--text-color);
 }
 
-
-#projects-gallery {
-    margin: 4rem auto;
-    text-align: center;
+.project:hover, .project-item:hover {
+    transform: translateY(-5px);
 }
+
+.project:hover img, .project-item:hover img {
+    transform: scale(1.05);
+}
+
 
 .filter-button {
     padding: 10px 20px;
@@ -231,50 +244,11 @@ h1 span {
     background-color: var(--button-hover-background-color);
 }
 
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.project-item {
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--background-color);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .project-item img {
     width: 480px;
     height: auto;
     margin: 2rem 1rem;
     transition: transform 0.3s ease;
-}
-
-.project-item h3 {
-    margin: 0.5rem;
-}
-
-.project-item a {
-    cursor: pointer;
-    margin: 1rem;
-    color: var(--button-background-color);
-    text-decoration: none;
-}
-
-.project-item a:hover {
-    color: var(--button-hover-background-color);
-}
-
-.project-item:hover {
-    transform: translateY(-5px);
-}
-
-.project-item:hover img {
-    transform: scale(1.05);
 }
 
 .project-description {
