@@ -12,9 +12,9 @@ const elements = {
 };
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
-elements.photographyIcon.addEventListener('click', () => window.location.href = ' href="projects.html?filter=photography#projects-gallery');
+elements.photographyIcon.addEventListener('click', () => window.location.href = 'projects.html?filter=photography#projects-gallery');
 elements.architecturalDesignIcon.addEventListener('click', () => window.location.href = 'projects.html?filter=architectural-design#projects-gallery');
-elements.gitIcon.addEventListener('click', () => window.location.href = 'https://gitlab.com/ZurekMartin');
+elements.gitIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
