@@ -40,6 +40,7 @@ body {
 }
 
 #hero {
+    padding: 0 6vw;
     align-items: center;
     display: flex;
     height: 100vh;
@@ -84,13 +85,12 @@ h3 {
 
 #arrow {
     border: 0.32rem solid var(--primary-color);
-    border-bottom-width: 0;
-    border-left-width: 0;
+    border-bottom: 0;
+    border-left: 0;
     bottom: 4.8rem;
     position: fixed;
     right: 50%;
     transform: rotate(135deg);
-    z-index: -1;
     height: 4.8rem;
     width: 4.8rem;
     animation: bounce 2s infinite;
@@ -136,15 +136,15 @@ h3 {
 
 
 #bio {
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     background-color: var(--tertiary-color);
 }
 
 #bio.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    gap: 3.2rem;
 }
 
 #bio img {
@@ -177,6 +177,7 @@ h3 {
 }
 
 .project {
+    padding: 3.2rem;
     border-radius: 1rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
@@ -195,7 +196,6 @@ h3 {
 
 .project img {
     width: 320px;
-    padding: 3.2rem;
     transition: transform 0.3s ease;
 }
 
@@ -211,6 +211,7 @@ h3 {
 .filter-button, #contact-form button{
     color: white;
     padding: 1rem;
+    margin: auto 1rem;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 1rem;
@@ -223,9 +224,51 @@ h3 {
     background-color: var(--button-hover-background-color);
 }
 
+.project-description {
+    display: none;
+}
+
+.project-description.active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 80vw;
+    height: 80vh;
+    overflow-y: auto;
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project.active {
+    z-index: 999;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
 
 #contact {
-    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
     background-color: var(--tertiary-color);
 }
 
@@ -233,6 +276,7 @@ h3 {
     color: var(--text-color);
     background: var(--background-color);
     padding: 3.2rem;
+    width: 480px;
     border-radius: 1rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
