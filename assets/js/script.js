@@ -3,7 +3,9 @@ const elements = {
     themeIcon: document.getElementById('theme-icon'),
     arrow: document.getElementById('arrow'),
     mailIcon: document.getElementById('mail-icon'),
-    githubIcon: document.getElementById('github-icon')
+    githubIcon: document.getElementById('github-icon'),
+    filterButtons: document.querySelectorAll('.filter-button'),
+    projects: document.querySelectorAll('.project')
 };
 
 function getThemeToSet() {
@@ -32,39 +34,41 @@ elements.mailIcon.addEventListener('click', () => window.location.href = `mailto
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
 window.addEventListener('scroll', function () {
-    const arrow = document.getElementById('arrow');
     const scrollThreshold = window.innerHeight / 16;
 
     if (window.scrollY > scrollThreshold) {
-        arrow.classList.remove('opacity-down');
-        arrow.classList.add('opacity-up');
+        elements.arrow.classList.remove('opacity-down');
+        elements.arrow.classList.add('opacity-up');
     } else {
-        arrow.classList.remove('opacity-up');
-        arrow.classList.add('opacity-down');
+        elements.arrow.classList.remove('opacity-up');
+        elements.arrow.classList.add('opacity-down');
     }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-button');
-    const projects = document.querySelectorAll('.project-item');
-
-    filterButtons.forEach(button => {
+    elements.filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
 
-            if (filter === 'view-all') {
-                projects.forEach(project => {
-                    project.style.display = '';
-                });
-            } else {
-                projects.forEach(project => {
-                    if (project.classList.contains(filter)) {
-                        project.style.display = '';
-                    } else {
-                        project.style.display = 'none';
-                    }
-                });
-            }
+            elements.projects.forEach(project => {
+                if (filter === 'view-all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                    project.classList.add('showed');
+                } else {
+                    project.classList.remove('showed');
+                    project.classList.add('hidden');
+                }
+            });
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filter = new URLSearchParams(window.location.search).get('filter');
+    if (filter) {
+        elements.projects.forEach(project => {
+            project.classList.toggle('hidden', !project.classList.contains(filter));
+            project.classList.toggle('showed', project.classList.contains(filter));
+        });
+    }
 });
