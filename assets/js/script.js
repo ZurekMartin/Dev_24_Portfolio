@@ -2,9 +2,6 @@ const elements = {
     homeIcon: document.getElementById('home-icon'),
     themeIcon: document.getElementById('theme-icon'),
     arrow: document.getElementById('arrow'),
-    photographyIcon: document.getElementById('photography-icon'),
-    architecturalDesignIcon: document.getElementById('architectural-design-icon'),
-    gitIcon: document.getElementById('git-icon'),
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
@@ -12,9 +9,6 @@ const elements = {
 };
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
-elements.photographyIcon.addEventListener('click', () => window.location.href = 'projects.html?filter=photography#projects-gallery');
-elements.architecturalDesignIcon.addEventListener('click', () => window.location.href = 'projects.html?filter=architectural-design#projects-gallery');
-elements.gitIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
@@ -48,6 +42,16 @@ window.addEventListener('scroll', function () {
         elements.arrow.classList.remove('opacity-up');
         elements.arrow.classList.add('opacity-down');
     }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const projectImages = document.querySelectorAll('.projects-grid .project img[data-url]');
+
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            window.location.href = img.getAttribute('data-url');
+        });
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
