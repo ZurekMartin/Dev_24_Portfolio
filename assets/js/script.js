@@ -2,6 +2,9 @@ const elements = {
     homeIcon: document.getElementById('home-icon'),
     themeIcon: document.getElementById('theme-icon'),
     arrow: document.getElementById('arrow'),
+    photographyIcon: document.getElementById('photography-icon'),
+    architecturalDesignIcon: document.getElementById('architectural-design-icon'),
+    gitIcon: document.getElementById('git-icon'),
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
@@ -9,6 +12,9 @@ const elements = {
 };
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
+elements.photographyIcon.addEventListener('click', () => window.location.href = ' href="projects.html?filter=photography#projects-gallery');
+elements.architecturalDesignIcon.addEventListener('click', () => window.location.href = 'projects.html?filter=architectural-design#projects-gallery');
+elements.gitIcon.addEventListener('click', () => window.location.href = 'https://gitlab.com/ZurekMartin');
 elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
