@@ -8,30 +8,29 @@ const elements = {
     projects: document.querySelectorAll('.project')
 };
 
-function getThemeToSet() {
-    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
+elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
+elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
+
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme();
 }
 
-function setTheme(theme, elements) {
+function applyTheme() {
+    const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     const mode = `${theme}_mode`;
     document.body.className = mode;
     elements.homeIcon.src = `assets/img/home_${mode}.png`;
     elements.themeIcon.src = `assets/img/${theme === 'dark' ? 'sun' : 'moon'}.png`;
-    localStorage.setItem('theme', theme);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    setTheme(getThemeToSet(), elements);
-
-    elements.themeIcon.addEventListener('click', () => {
-        const newTheme = document.body.className === 'dark_mode' ? 'light' : 'dark';
-        setTheme(newTheme, elements);
-    });
+    applyTheme();
+    elements.themeIcon.addEventListener('click', toggleTheme);
 });
 
-elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
-elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
-elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
 window.addEventListener('scroll', function () {
     const scrollThreshold = window.innerHeight / 16;
