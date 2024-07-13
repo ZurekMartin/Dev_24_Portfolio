@@ -1,7 +1,7 @@
 const elements = {
     homeIcon: document.getElementById('home-icon'),
     themeIcon: document.getElementById('theme-icon'),
-    arrow: document.getElementById('arrow'),
+    arrowIcon: document.getElementById('arrow-icon'),
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
@@ -24,6 +24,7 @@ function applyTheme() {
     document.body.className = mode;
     elements.homeIcon.src = `assets/img/home_${mode}.png`;
     elements.themeIcon.src = `assets/img/${theme === 'dark' ? 'sun' : 'moon'}.png`;
+    elements.arrowIcon.src = `assets/img/arrow_${mode}.png`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,16 +32,30 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.themeIcon.addEventListener('click', toggleTheme);
 });
 
+elements.arrowIcon.addEventListener('click', function() {
+    const currentSection = this.closest('section');
+    let nextSection = currentSection ? currentSection.nextElementSibling : null;
+
+    if (!nextSection) {
+        nextSection = document.querySelector('section');
+    }
+
+    if (nextSection) {
+        window.scrollTo({
+            top: nextSection.offsetTop,
+        });
+    }
+});
 
 window.addEventListener('scroll', function () {
     const scrollThreshold = window.innerHeight / 16;
 
     if (window.scrollY > scrollThreshold) {
-        elements.arrow.classList.remove('opacity-down');
-        elements.arrow.classList.add('opacity-up');
+        elements.arrowIcon.classList.remove('opacity-down');
+        elements.arrowIcon.classList.add('opacity-up');
     } else {
-        elements.arrow.classList.remove('opacity-up');
-        elements.arrow.classList.add('opacity-down');
+        elements.arrowIcon.classList.remove('opacity-up');
+        elements.arrowIcon.classList.add('opacity-down');
     }
 });
 
