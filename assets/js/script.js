@@ -82,34 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.project a').forEach((link, index) => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const projectDescription = document.querySelectorAll('.project')[index].querySelector('.project-description');
-            projectDescription.classList.toggle('active');
-            const overlay = document.querySelector('.overlay');
-            if (projectDescription.classList.contains('active')) {
-                overlay.classList.remove('hidden');
-            } else {
-                overlay.classList.add('hidden');
-            }
-
-            overlay.onclick = () => {
-                projectDescription.classList.remove('active');
-                overlay.classList.add('hidden');
-            };
-        });
+document.querySelectorAll('.project a').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.project').querySelector('.project-description').classList.remove('hidden');
+        document.querySelector('.overlay').style.display = 'block';
     });
+});
 
-    document.body.addEventListener('click', function(e) {
-        if (!e.target.closest('.project-description') && !e.target.closest('.overlay') && !e.target.closest('.project a')) {
-            const activeDescription = document.querySelector('.project-description.active');
-            if (activeDescription) {
-                activeDescription.classList.remove('active');
-                const overlay = document.querySelector('.overlay');
-                overlay.classList.add('hidden');
-            }
-        }
+document.querySelector('.overlay').addEventListener('click', function() {
+    document.querySelectorAll('.project-description').forEach(description => {
+        description.classList.add('hidden');
     });
+    this.style.display = 'none';
 });
