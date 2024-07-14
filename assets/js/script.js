@@ -2,6 +2,7 @@ const elements = {
     homeIcon: document.getElementById('home-icon'),
     themeIcon: document.getElementById('theme-icon'),
     arrowIcon: document.getElementById('arrow-icon'),
+    gitThumbnail: document.getElementById('git'),
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
@@ -9,6 +10,9 @@ const elements = {
 };
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
+document.addEventListener('DOMContentLoaded', () => {
+    elements.gitThumbnail?.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
+});
 elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
