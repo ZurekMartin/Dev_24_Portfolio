@@ -6,7 +6,8 @@ const elements = {
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
-    projects: document.querySelectorAll('.project')
+    projects: document.querySelectorAll('.project'),
+    overlay: document.querySelector('.overlay')
 };
 
 elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
@@ -101,16 +102,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.querySelectorAll('.project a').forEach(button => {
-    button.addEventListener('click', function() {
-        this.closest('.project').querySelector('.project-description').classList.remove('hidden');
-        document.querySelector('.overlay').style.display = 'block';
-    });
-});
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project img').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const projectContainer = link.closest('.project');
+            const description = projectContainer.querySelector('.project-description');
 
-document.querySelector('.overlay').addEventListener('click', function() {
-    document.querySelectorAll('.project-description').forEach(description => {
-        description.classList.add('hidden');
+            description.classList.toggle('hidden');
+            elements.overlay.classList.toggle('hidden');
+
+            if (!elements.overlay.dataset.listenerSet) {
+                elements.overlay.addEventListener('click', () => {
+                    description.classList.add('hidden');
+                    elements.overlay.classList.add('hidden');
+                });
+            }
+        });
     });
-    this.style.display = 'none';
 });

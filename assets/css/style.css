@@ -87,7 +87,6 @@ h3 {
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
-    z-index: -1;
 }
 
 @keyframes bounce {
@@ -129,6 +128,7 @@ h3 {
 }
 
 #bio.container {
+    padding-bottom: 10rem;
     display: flex;
     gap: 4rem;
 }
@@ -157,7 +157,7 @@ h3 {
 }
 
 .project {
-    padding: 1rem;
+    padding: 3rem;
     border-radius: 1rem;
     border: 1px solid var(--border-color);
     background-color: var(--background-color);
@@ -183,22 +183,33 @@ h3 {
 #contact {
     display: flex;
     justify-content: center;
-    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
     background-color: var(--tertiary-color);
+}
+
+#contact.container {
+    padding-top: 16rem;
 }
 
 #contact-form {
     color: var(--text-color);
     background: var(--background-color);
-    padding: 1rem;
-    width: 480px;
+    padding: 3rem;
+    width: 640px;
     border-radius: 1rem;
     border: 1px solid var(--border-color);
 }
 
+#contact-form label {
+    font-size: 1.6rem;
+}
+
 #contact-form input,
 #contact-form textarea {
+    padding: 1rem 0;
+    margin: 1rem auto;
     color: var(--text-color);
+    font-size: 1.6rem;
     width: 100%;
     border-radius: 1rem;
     border: 1px solid var(--border-color);
@@ -245,12 +256,9 @@ h3 {
     z-index: 1000;
     width: 80vw;
     height: 80vh;
-    overflow-y: auto;
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
-    padding: 4rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -259,12 +267,10 @@ h3 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 10;
-    display: none;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+    z-index: 100;
 }
 
 
