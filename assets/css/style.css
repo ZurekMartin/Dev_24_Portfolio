@@ -150,6 +150,10 @@ h3 {
     text-align: center;
 }
 
+#latest-projects.container {
+    padding-bottom: 12rem;
+}
+
 .projects-grid {
     gap: 4rem;
     display: grid;
@@ -246,6 +250,11 @@ h3 {
     margin: auto 4rem;
 }
 
+
+/* Filter Buttons */
+#filter-buttons {
+    padding-bottom: 4rem;
+}
 
 /* Project Description */
 .project-description {
