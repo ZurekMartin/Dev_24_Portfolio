@@ -278,7 +278,7 @@ h3 {
     left: 0;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
     z-index: 100;
 }
 
@@ -290,4 +290,29 @@ h3 {
 
 .hidden {
     display: none;
+}
+
+/* Responsive */
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1080px) {
+
+}
+
+@media (max-width: 720px) {
+
+}
+
+@media (max-width: 1440px) and (orientation: portrait) {
+
+}
+
+@media (max-width: 1080px) and (orientation: portrait) {
+
+}
+
+@media (max-width: 720px) and (orientation: portrait) {
+
 }
