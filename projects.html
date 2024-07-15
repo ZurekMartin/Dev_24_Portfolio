@@ -3,30 +3,89 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="keywords" content="Digital creator, photographer, programmer, designer"/>
-    <meta name="description" content="Portfolio of a digital creator, photographer, programmer and designer."/>
+    <meta name="keywords" content="Digital creator, mobile photographer, architectural designer, programmer"/>
+    <meta name="description"
+          content="Portfolio of a digital creator focusing on mobile photography, architectural design and programming."/>
     <title>Just a letter M - Projects</title>
     <link rel="preload" as="style" href="assets/css/style.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-<header id="hero">
-    <section class="container">
-        <img id="home-icon" class="icon" src="assets/img/home-dark-mode.png" alt="Home icon">
-        <img id="theme-icon" class="icon" src="assets/img/sun.png" alt="Theme icon">
-        <h1>Projects</h1>
-        <div id="arrow" role="img" aria-label="Scroll indicator"></div>
-    </section>
+<header id="hero" class="container">
+    <img id="home-icon" class="icon" src="assets/img/home_dark_mode.png" alt="Home icon">
+    <img id="theme-icon" class="icon" src="assets/img/sun.png" alt="Theme icon">
+    <h1>Projects Gallery</h1>
+    <img id="arrow-icon" src="assets/img/arrow_dark_mode.png" alt="Arrow icon">
 </header>
-<footer id="footer">
-    <section class="container">
-        <div class="footer-text">
-            <img id="mail-icon" class="icon" src="assets/img/mail.png" alt="Mail icon">
-            <p>zurek.martin.1@icloud.com</p>
-            <img id="github-icon" class="icon" src="assets/img/github.png" alt="Github icon">
+<section id="projects-gallery" class="container">
+    <div id="filter-buttons">
+        <button class="filter-button" data-filter="photography">Photography</button>
+        <button class="filter-button" data-filter="architectural-design">Architectural Design</button>
+        <button class="filter-button" data-filter="view-all">View All</button>
+    </div>
+    <div class="projects-grid">
+        <div class="project photography">
+            <img src="assets/img/project1.png" alt="Photography 1 thumbnail">
+            <h3>Photography 1</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/photography1.png" alt="Photography project 1 image 1">
+                <img src="assets/img/photography2.png" alt="Photography project 1 image 2">
+                <img src="assets/img/photography3.png" alt="Photography project 1 image 3">
+            </div>
         </div>
-    </section>
+        <div class="project architectural-design">
+            <img src="assets/img/project1.png" alt="Architectural design 1 thumbnail">
+            <h3>Architectural Design 1</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/architectural_design1.png" alt="Architectural design 1 image 1">
+                <img src="assets/img/architectural_design2.png" alt="Architectural design 1 image 2">
+                <img src="assets/img/architectural_design3.png" alt="Architectural design 1 image 3">
+            </div>
+        </div>
+        <div class="project photography">
+            <img src="assets/img/project2.png" alt="Photography 2 thumbnail">
+            <h3>Photography 2</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/photography1.png" alt="Photography project 2 image 1">
+                <img src="assets/img/photography2.png" alt="Photography project 2 image 2">
+                <img src="assets/img/photography3.png" alt="Photography project 2 image 3">
+            </div>
+        </div>
+        <div class="project architectural-design">
+            <img src="assets/img/project2.png" alt="Architectural design 2 thumbnail">
+            <h3>Architectural Design 2</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/architectural_design1.png" alt="Architectural design 2 image 1">
+                <img src="assets/img/architectural_design2.png" alt="Architectural design 2 image 2">
+                <img src="assets/img/architectural_design3.png" alt="Architectural design 2 image 3">
+            </div>
+        </div>
+        <div class="project photography">
+            <img src="assets/img/project3.png" alt="Photography 3 thumbnail">
+            <h3>Photography 3</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/photography1.png" alt="Photography project 3 image 1">
+                <img src="assets/img/photography2.png" alt="Photography project 3 image 2">
+                <img src="assets/img/photography3.png" alt="Photography project 3 image 3">
+            </div>
+        </div>
+        <div class="project architectural-design">
+            <img src="assets/img/project3.png" alt="Architectural 3 thumbnail">
+            <h3>Architectural Design 3</h3>
+            <div class="project-description hidden">
+                <img src="assets/img/architectural_design1.png" alt="Architectural design 3 image 1">
+                <img src="assets/img/architectural_design2.png" alt="Architectural design 3 image 2">
+                <img src="assets/img/architectural_design3.png" alt="Architectural design 3 image 3">
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="footer" class="container">
+    <img id="mail-icon" class="icon" src="assets/img/mail.png" alt="Mail icon">
+    <p>zurek.martin.1@icloud.com</p>
+    <img id="github-icon" class="icon" src="assets/img/github.png" alt="Github icon">
 </footer>
+<div class="overlay hidden"></div>
 <script defer src="assets/js/script.js"></script>
 </body>
 </html>

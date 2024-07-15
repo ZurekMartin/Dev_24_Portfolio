@@ -1,49 +1,123 @@
 const elements = {
     homeIcon: document.getElementById('home-icon'),
     themeIcon: document.getElementById('theme-icon'),
-    arrow: document.getElementById('arrow'),
+    arrowIcon: document.getElementById('arrow-icon'),
+    gitThumbnail: document.getElementById('git'),
     mailIcon: document.getElementById('mail-icon'),
-    githubIcon: document.getElementById('github-icon')
+    githubIcon: document.getElementById('github-icon'),
+    filterButtons: document.querySelectorAll('.filter-button'),
+    projects: document.querySelectorAll('.project'),
+    overlay: document.querySelector('.overlay')
 };
 
-function getThemeToSet() {
-    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
+document.addEventListener('DOMContentLoaded', () => {
+    elements.gitThumbnail?.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
+});
+elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
+elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
+
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme();
 }
 
-function setTheme(theme, elements) {
-    const mode = `${theme}-mode`;
+function applyTheme() {
+    const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const mode = `${theme}_mode`;
     document.body.className = mode;
-    elements.homeIcon.src = `assets/img/home-${mode}.png`;
+    elements.homeIcon.src = `assets/img/home_${mode}.png`;
     elements.themeIcon.src = `assets/img/${theme === 'dark' ? 'sun' : 'moon'}.png`;
-    localStorage.setItem('theme', theme);
+    elements.arrowIcon.src = `assets/img/arrow_${mode}.png`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    setTheme(getThemeToSet(), elements);
-
-    elements.themeIcon.addEventListener('click', () => {
-        const newTheme = document.body.className === 'dark-mode' ? 'light' : 'dark';
-        setTheme(newTheme, elements);
-    });
+    applyTheme();
+    elements.themeIcon.addEventListener('click', toggleTheme);
 });
 
-elements.homeIcon.addEventListener('click', () => window.location.href = 'index.html#hero');
-elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
+elements.arrowIcon.addEventListener('click', function() {
+    const currentSection = this.closest('section');
+    let nextSection = currentSection ? currentSection.nextElementSibling : null;
 
-elements.githubIcon.addEventListener('click', (event) => {
-    event.preventDefault();
-    const win = window.open('https://github.com/ZurekMartin', '_blank');
-    win.focus();
-    win.opener = null;
+    if (!nextSection) {
+        nextSection = document.querySelector('section');
+    }
+
+    if (nextSection) {
+        window.scrollTo({
+            top: nextSection.offsetTop,
+        });
+    }
 });
 
 window.addEventListener('scroll', function () {
-    var arrow = document.getElementById('arrow');
-    var scrollThreshold = window.innerHeight / 16;
+    const scrollThreshold = window.innerHeight / 16;
 
     if (window.scrollY > scrollThreshold) {
-        arrow.style.opacity = '0';
+        elements.arrowIcon.classList.remove('opacity-down');
+        elements.arrowIcon.classList.add('opacity-up');
     } else {
-        arrow.style.opacity = '1';
+        elements.arrowIcon.classList.remove('opacity-up');
+        elements.arrowIcon.classList.add('opacity-down');
     }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const projectImages = document.querySelectorAll('.projects-grid .project img[data-url]');
+
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            window.location.href = img.getAttribute('data-url');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    elements.filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            elements.projects.forEach(project => {
+                if (filter === 'view-all' || project.classList.contains(filter)) {
+                    project.classList.remove('hidden');
+                    project.classList.add('showed');
+                } else {
+                    project.classList.remove('showed');
+                    project.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filter = new URLSearchParams(window.location.search).get('filter');
+    if (filter) {
+        elements.projects.forEach(project => {
+            project.classList.toggle('hidden', !project.classList.contains(filter));
+            project.classList.toggle('showed', project.classList.contains(filter));
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project img').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const projectContainer = link.closest('.project');
+            const description = projectContainer.querySelector('.project-description');
+
+            description.classList.toggle('hidden');
+            elements.overlay.classList.toggle('hidden');
+
+            if (!elements.overlay.dataset.listenerSet) {
+                elements.overlay.addEventListener('click', () => {
+                    description.classList.add('hidden');
+                    elements.overlay.classList.add('hidden');
+                });
+            }
+        });
+    });
 });

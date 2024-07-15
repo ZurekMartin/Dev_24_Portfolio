@@ -3,29 +3,66 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="keywords" content="Digital creator, photographer, programmer, designer"/>
-    <meta name="description" content="Portfolio of a digital creator, photographer, programmer and designer."/>
+    <meta name="keywords" content="Digital creator, mobile photographer, architectural designer, programmer"/>
+    <meta name="description"
+          content="Portfolio of a digital creator focusing on mobile photography, architectural design and programming."/>
     <title>Just a letter M</title>
     <link rel="preload" as="style" href="assets/css/style.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-<header id="hero">
-    <section class="container">
-        <img id="home-icon" class="icon" src="assets/img/home-dark-mode.png" alt="Home icon">
-        <img id="theme-icon" class="icon" src="assets/img/sun.png" alt="Theme icon">
-        <h1>Hi, I'm <span>Just a Letter M</span><br>A digital creator</h1>
-        <div id="arrow" role="img" aria-label="Scroll indicator"></div>
-    </section>
+<header id="hero" class="container">
+    <img id="home-icon" class="icon" src="assets/img/home_dark_mode.png" alt="Home icon">
+    <img id="theme-icon" class="icon" src="assets/img/sun.png" alt="Theme icon">
+    <h1>Hi, I'm <span>Just a Letter M</span><br>A digital creator</h1>
+    <img id="arrow-icon" src="assets/img/arrow_dark_mode.png" alt="Arrow icon">
 </header>
-<footer id="footer">
-    <section class="container">
-        <div class="footer-text">
-            <img id="mail-icon" class="icon" src="assets/img/mail.png" alt="Mail icon">
-            <p>zurek.martin.1@icloud.com</p>
-            <img id="github-icon" class="icon" src="assets/img/github.png" alt="Github icon">
+<section id="bio" class="container">
+    <img src="assets/img/profile.png" alt="Profile image">
+    <div id="bio-text">
+        <h2>About Me</h2>
+        <p>Hi, I'm Just a Letter M. I am a digital creator focusing on mobile photography, architectural design, and
+            programming.</p>
+        <p>My journey began back in 2017 when I decided to discover the magic of mobile photography. Since then, my
+            portfolio has expanded to include diverse projects such as architectural design and programming with a
+            specialization in data analytics.</p>
+        <p>My goal is to continuously learn and enhance my skills while creating projects that inspire others to explore
+            the fascinating intersection of art and technology.</p>
+    </div>
+</section>
+<section id="latest-projects" class="container">
+    <h2>My Latest Projects</h2>
+    <div class="projects-grid">
+        <div class="project">
+            <img id="photography" data-url="projects.html?filter=photography#projects-gallery" src="assets/img/photos.png" alt="Photography thumbnail">
+            <h3>Photography</h3>
         </div>
-    </section>
+        <div class="project">
+            <img id="architectural-design" data-url="projects.html?filter=architectural-design#projects-gallery" src="assets/img/blueprint.png" alt="Architectural design thumbnail">
+            <h3>Architectural design</h3>
+        </div>
+        <div class="project">
+            <img id="git" src="assets/img/git.png" alt="Git thumbnail">
+            <h3>Github</h3>
+        </div>
+    </div>
+</section>
+<section id="contact" class="container">
+    <form id="contact-form">
+        <h2>Contact Me</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+<footer id="footer" class="container">
+    <img id="mail-icon" class="icon" src="assets/img/mail.png" alt="Mail icon">
+    <p>zurek.martin.1@icloud.com</p>
+    <img id="github-icon" class="icon" src="assets/img/github.png" alt="Github icon">
 </footer>
 <script defer src="assets/js/script.js"></script>
 </body>
