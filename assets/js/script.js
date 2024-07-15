@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.themeIcon.addEventListener('click', toggleTheme);
 });
 
-elements.arrowIcon.addEventListener('click', function() {
+elements.arrowIcon.addEventListener('click', function () {
     const currentSection = this.closest('section');
     let nextSection = currentSection ? currentSection.nextElementSibling : null;
 
@@ -64,19 +64,19 @@ window.addEventListener('scroll', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const projectImages = document.querySelectorAll('.projects-grid .project img[data-url]');
 
     projectImages.forEach(img => {
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             window.location.href = img.getAttribute('data-url');
         });
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     elements.filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
 
             elements.projects.forEach(project => {
@@ -106,15 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project img').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const projectContainer = link.closest('.project');
-            const description = projectContainer.querySelector('.project-description');
 
-            description.classList.toggle('hidden');
             elements.overlay.classList.toggle('hidden');
 
             if (!elements.overlay.dataset.listenerSet) {
                 elements.overlay.addEventListener('click', () => {
-                    description.classList.add('hidden');
                     elements.overlay.classList.add('hidden');
                 });
             }
