@@ -298,7 +298,7 @@ h3, #contact-form label {
 
 
 /* Media Queries */
-@media screen and (max-aspect-ratio: 2/1) {
+@media screen and (max-aspect-ratio: 3/4) {
     h1 {
         font-size: 3vh;
     }
