@@ -77,20 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-elements.sendMailButton.addEventListener('click', function () {
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    window.location.href = `mailto:zurek.martin.1@icloud.com?subject=${subject}&body=${message}`;
-
-    clearContactForm();
-});
-
-function clearContactForm() {
-    elements.subject.value = '';
-    elements.message.value = '';
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     elements.filterButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -134,3 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+elements.sendMailButton.addEventListener('click', function () {
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    window.location.href = `mailto:zurek.martin.1@icloud.com?subject=${subject}&body=${message}`;
+
+    clearContactForm();
+});
+
+function clearContactForm() {
+    elements.subject.value = '';
+    elements.message.value = '';
+}
