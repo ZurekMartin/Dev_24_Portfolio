@@ -56,7 +56,7 @@ elements.arrowIcon.addEventListener('click', function () {
 });
 
 window.addEventListener('scroll', function () {
-    const scrollThreshold = window.innerHeight / 16;
+    const scrollThreshold = window.innerHeight / 24;
 
     if (window.scrollY > scrollThreshold) {
         elements.arrowIcon.classList.remove('opacity-down');

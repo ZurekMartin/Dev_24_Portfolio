@@ -40,9 +40,9 @@ body {
 }
 
 
-/* Headers */
+/* Headers and labels */
 h1 {
-    font-size: 4vw;
+    font-size: 3vw;
 }
 
 h1 span {
@@ -50,12 +50,12 @@ h1 span {
 }
 
 h2 {
-    font-size: 2.4vw;
+    font-size: 2vw;
     color: var(--text-color);
 }
 
-h3 {
-    font-size: 1.6vw;
+h3, #contact-form label {
+    font-size: 1.4vw;
 }
 
 
@@ -79,11 +79,11 @@ h3 {
 }
 
 #arrow-icon {
-    height: 6vw;
-    width: 6vw;
+    height: 5vw;
+    width: 5vw;
     cursor: pointer;
     position: fixed;
-    bottom: 2vw;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
@@ -94,10 +94,10 @@ h3 {
         transform: translateX(-50%) translateY(0);
     }
     40% {
-        transform: translateX(-50%) translateY(-4rem);
+        transform: translateX(-50%) translateY(-2vh);
     }
     60% {
-        transform: translateX(-50%) translateY(-1rem);
+        transform: translateX(-50%) translateY(-1vh);
     }
 }
 
@@ -114,7 +114,7 @@ h3 {
 
 /* Hero */
 #hero {
-    padding: 0 8vw;
+    padding: 0 6vw;
     align-items: center;
     display: flex;
     height: 100vh;
@@ -128,7 +128,7 @@ h3 {
 }
 
 #bio.container {
-    padding-bottom: 12vh;
+    padding-bottom: 10vh;
     display: flex;
     gap: 4vw;
 }
@@ -152,7 +152,7 @@ h3 {
 }
 
 #latest-projects.container {
-    padding-bottom: 12vh;
+    padding-bottom: 10vh;
 }
 
 .projects-grid {
@@ -170,14 +170,14 @@ h3 {
 }
 
 .project img {
-    width: 18vw;
-    height: 18vw;
+    width: 16vw;
+    height: 16vw;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .project:hover {
-    transform: translateY(-1rem);
+    transform: translateY(-1vh);
 }
 
 .project:hover img {
@@ -194,7 +194,7 @@ h3 {
 }
 
 #contact.container {
-    padding-top: 18vh;
+    padding-top: 12vh;
 }
 
 #contact-form {
@@ -206,13 +206,9 @@ h3 {
     border: 1px solid var(--border-color);
 }
 
-#contact-form label {
-    font-size: 1.4vw;
-}
-
 #contact-form input,
 #contact-form textarea {
-    padding: 1vw 0;
+    padding: 1vh 0;
     margin: 1vh auto;
     color: var(--text-color);
     font-size: 1vw;
@@ -248,7 +244,7 @@ h3 {
 }
 
 #footer p {
-    font-size: 2.4vw;
+    font-size: 2vw;
     margin: auto 4vw;
 }
 
@@ -276,6 +272,7 @@ h3 {
 
 .project-description img {
     cursor: default;
+    margin: auto 1vw;
     transform: none;
 }
 
