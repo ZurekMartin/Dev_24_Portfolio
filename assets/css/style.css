@@ -265,7 +265,6 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 1vw;
-    z-index: 1000;
     width: 80vw;
     height: 80vh;
     background-color: var(--background-color);
@@ -287,7 +286,7 @@ h3 {
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(5vw);
-    z-index: 100;
+    z-index: 999;
 }
 
 
