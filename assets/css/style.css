@@ -40,9 +40,9 @@ body {
 }
 
 
-/* Headers */
+/* Headers and labels */
 h1 {
-    font-size: 8rem;
+    font-size: 3vw;
 }
 
 h1 span {
@@ -50,40 +50,40 @@ h1 span {
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2vw;
     color: var(--text-color);
 }
 
-h3 {
-    font-size: 1.6rem;
+h3, #contact-form label {
+    font-size: 1.4vw;
 }
 
 
 /* Icons */
 .icon {
     cursor: pointer;
-    height: 4rem;
-    width: 4rem;
+    height: 3vw;
+    width: 3vw;
 }
 
 #home-icon {
     position: absolute;
-    left: 4rem;
-    top: 4rem;
+    left: 2vw;
+    top: 2vw;
 }
 
 #theme-icon {
     position: absolute;
-    right: 4rem;
-    top: 4rem;
+    right: 2vw;
+    top: 2vw;
 }
 
 #arrow-icon {
-    height: 8rem;
-    width: 8rem;
+    height: 5vw;
+    width: 5vw;
     cursor: pointer;
     position: fixed;
-    bottom: 4rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
@@ -94,10 +94,10 @@ h3 {
         transform: translateX(-50%) translateY(0);
     }
     40% {
-        transform: translateX(-50%) translateY(-4rem);
+        transform: translateX(-50%) translateY(-2vh);
     }
     60% {
-        transform: translateX(-50%) translateY(-1rem);
+        transform: translateX(-50%) translateY(-1vh);
     }
 }
 
@@ -114,7 +114,7 @@ h3 {
 
 /* Hero */
 #hero {
-    padding: 0 4vw;
+    padding: 0 6vw;
     align-items: center;
     display: flex;
     height: 100vh;
@@ -128,18 +128,19 @@ h3 {
 }
 
 #bio.container {
-    padding-bottom: 10rem;
+    padding-bottom: 10vh;
     display: flex;
-    gap: 4rem;
+    gap: 4vw;
 }
 
 #bio img {
-    width: 480px;
+    width: 24vw;
+    height: 24vw;
     border-radius: 50%;
 }
 
 #bio-text p {
-    font-size: 1.6rem;
+    font-size: 1.4vw;
     text-align: justify;
     color: var(--text-color);
 }
@@ -151,31 +152,32 @@ h3 {
 }
 
 #latest-projects.container {
-    padding-bottom: 12rem;
+    padding-bottom: 10vh;
 }
 
 .projects-grid {
-    gap: 4rem;
+    gap: 4vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 .project {
-    padding: 3rem;
-    border-radius: 1rem;
+    padding: 2vw;
+    border-radius: 1vw;
     border: 1px solid var(--border-color);
     background-color: var(--background-color);
     transition: transform 0.3s ease;
 }
 
 .project img {
-    width: 320px;
+    width: 16vw;
+    height: 16vw;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .project:hover {
-    transform: translateY(-1rem);
+    transform: translateY(-1vh);
 }
 
 .project:hover img {
@@ -192,41 +194,37 @@ h3 {
 }
 
 #contact.container {
-    padding-top: 16rem;
+    padding-top: 12vh;
 }
 
 #contact-form {
     color: var(--text-color);
     background: var(--background-color);
-    padding: 3rem;
-    width: 640px;
-    border-radius: 1rem;
+    padding: 2vw;
+    width: 30vw;
+    border-radius: 1vw;
     border: 1px solid var(--border-color);
-}
-
-#contact-form label {
-    font-size: 1.6rem;
 }
 
 #contact-form input,
 #contact-form textarea {
-    padding: 1rem 0;
-    margin: 1rem auto;
+    padding: 1vh 0;
+    margin: 1vh auto;
     color: var(--text-color);
-    font-size: 1.6rem;
+    font-size: 1vw;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 1vw;
     border: 1px solid var(--border-color);
     background-color: var(--contact-input-background-color);
 }
 
 #contact-form button, .filter-button {
     color: white;
-    padding: 1rem;
-    margin: auto 1rem;
-    font-size: 1rem;
+    padding: 1vw;
+    margin: auto 1vw;
+    font-size: 1vw;
     cursor: pointer;
-    border-radius: 1rem;
+    border-radius: 1vw;
     border: none;
     background-color: var(--button-background-color);
     transition: var(--button-background-color) 0.3s ease;
@@ -246,14 +244,14 @@ h3 {
 }
 
 #footer p {
-    font-size: 3rem;
-    margin: auto 4rem;
+    font-size: 2vw;
+    margin: auto 4vw;
 }
 
 
 /* Filter Buttons */
 #filter-buttons {
-    padding-bottom: 4rem;
+    padding-bottom: 4vh;
 }
 
 /* Project Description */
@@ -262,7 +260,7 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    border-radius: 1vw;
     width: 80vw;
     height: 80vh;
     background-color: var(--background-color);
@@ -272,14 +270,20 @@ h3 {
     justify-content: center;
 }
 
+.project-description img {
+    cursor: default;
+    margin: auto 1vw;
+    transform: none;
+}
+
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(5px);
-    z-index: 100;
+    backdrop-filter: blur(5vw);
+    z-index: 999;
 }
 
 
@@ -292,27 +296,151 @@ h3 {
     display: none;
 }
 
-/* Responsive */
-@media (max-width: 1440px) {
 
-}
+/* Media Queries */
+@media screen and (max-aspect-ratio: 3/4) {
+    h1 {
+        font-size: 3vh;
+    }
 
-@media (max-width: 1080px) {
+    h2 {
+        font-size: 2vh;
+        color: var(--text-color);
+    }
 
-}
+    h3, #contact-form label {
+        font-size: 1.4vh;
+    }
 
-@media (max-width: 720px) {
+    .icon {
+        cursor: pointer;
+        height: 3vh;
+        width: 3vh;
+    }
 
-}
+    #home-icon {
+        position: absolute;
+        left: 2vh;
+        top: 2vh;
+    }
 
-@media (max-width: 1440px) and (orientation: portrait) {
+    #theme-icon {
+        position: absolute;
+        right: 2vh;
+        top: 2vh;
+    }
 
-}
+    #arrow-icon {
+        height: 5vh;
+        width: 5vh;
+        cursor: pointer;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+    }
 
-@media (max-width: 1080px) and (orientation: portrait) {
+    #bio.container {
+        padding-bottom: 16vh;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
 
-}
+    #bio img {
+        width: 24vh;
+        height: 24vh;
+        border-radius: 50%;
+    }
 
-@media (max-width: 720px) and (orientation: portrait) {
+    #bio-text p {
+        font-size: 1.4vh;
+        text-align: justify;
+        color: var(--text-color);
+    }
 
+    #latest-projects.container {
+        padding-bottom: 10vh;
+    }
+
+    .projects-grid {
+        gap: 4vh;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .project {
+        padding: 2vh;
+        border-radius: 1vh;
+        border: 1px solid var(--border-color);
+        background-color: var(--background-color);
+        transition: transform 0.3s ease;
+    }
+
+    .project img {
+        width: 16vh;
+        height: 16vh;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    #contact-form {
+        color: var(--text-color);
+        background: var(--background-color);
+        padding: 2vh;
+        width: 30vh;
+        border-radius: 1vh;
+        border: 1px solid var(--border-color);
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+        padding: 1vh 0;
+        margin: 1vh auto;
+        color: var(--text-color);
+        font-size: 1vh;
+        width: 100%;
+        border-radius: 1vh;
+        border: 1px solid var(--border-color);
+        background-color: var(--contact-input-background-color);
+    }
+
+    #contact-form button, .filter-button {
+        color: white;
+        padding: 1vh;
+        margin: auto 1vh;
+        font-size: 1vh;
+        cursor: pointer;
+        border-radius: 1vh;
+        border: none;
+        background-color: var(--button-background-color);
+        transition: var(--button-background-color) 0.3s ease;
+    }
+
+    #footer p {
+        font-size: 2vh;
+        margin: auto 4vh;
+    }
+
+    .project-description {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1vh;
+        width: 80vw;
+        height: 80vh;
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .project-description img {
+        cursor: default;
+        margin: auto 1vh;
+        transform: none;
+    }
 }
