@@ -35,14 +35,14 @@ body {
 }
 
 .container {
-    padding: 8vh 8vw;
+    padding: 6vh 6vw;
     max-width: 3840px;
 }
 
 
 /* Headers */
 h1 {
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 h1 span {
@@ -62,8 +62,8 @@ h3 {
 /* Icons */
 .icon {
     cursor: pointer;
-    height: 4vw;
-    width: 4vw;
+    height: 3vw;
+    width: 3vw;
 }
 
 #home-icon {
@@ -79,8 +79,8 @@ h3 {
 }
 
 #arrow-icon {
-    height: 8vw;
-    width: 8vw;
+    height: 6vw;
+    width: 6vw;
     cursor: pointer;
     position: fixed;
     bottom: 2vw;

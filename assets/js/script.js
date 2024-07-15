@@ -3,6 +3,9 @@ const elements = {
     themeIcon: document.getElementById('theme-icon'),
     arrowIcon: document.getElementById('arrow-icon'),
     gitThumbnail: document.getElementById('git'),
+    subject: document.getElementById('subject'),
+    message: document.getElementById('message'),
+    sendMailButton: document.getElementById('send-email-button'),
     mailIcon: document.getElementById('mail-icon'),
     githubIcon: document.getElementById('github-icon'),
     filterButtons: document.querySelectorAll('.filter-button'),
@@ -14,7 +17,7 @@ elements.homeIcon.addEventListener('click', () => window.location.href = 'index.
 document.addEventListener('DOMContentLoaded', () => {
     elements.gitThumbnail?.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 });
-elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:name@adress.com`);
+elements.mailIcon.addEventListener('click', () => window.location.href = `mailto:zurek.martin.1@icloud.com`);
 elements.githubIcon.addEventListener('click', () => window.location.href = 'https://github.com/ZurekMartin');
 
 function toggleTheme() {
@@ -73,6 +76,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+elements.sendMailButton.addEventListener('click', function () {
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    window.location.href = `mailto:zurek.martin.1@icloud.com?subject=${subject}&body=${message}`;
+
+    clearContactForm();
+});
+
+function clearContactForm() {
+    elements.subject.value = '';
+    elements.message.value = '';
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     elements.filterButtons.forEach(button => {
