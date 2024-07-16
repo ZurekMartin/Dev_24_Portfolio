@@ -176,7 +176,7 @@ h3, #contact-form label {
     transition: transform 0.3s ease;
 }
 
-.project:hover {
+#latest-projects .project:hover {
     transform: translateY(-1vh);
 }
 
@@ -433,14 +433,13 @@ h3, #contact-form label {
         height: 80vh;
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .project-description img {
         cursor: default;
-        margin: auto 1vh;
-        transform: none;
+        margin: auto;
+        transform: none !important;
     }
 }
